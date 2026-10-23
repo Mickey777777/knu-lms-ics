@@ -1,0 +1,26 @@
+server {
+    listen 80;
+    server_name feed.example.com;
+    root /home/USER/knu-lms-ics/out;
+
+    autoindex off;
+    add_header X-Robots-Tag "noindex, nofollow" always;
+
+    location ~ /\. {
+        deny all;
+    }
+
+    location ~ "^/[A-Za-z0-9_-]{43,}\.ics$" {
+        access_log off;
+        types { text/calendar ics; }
+        charset utf-8;
+        charset_types text/calendar;
+        add_header Cache-Control "no-store" always;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+        try_files $uri =404;
+    }
+
+    location / {
+        return 404;
+    }
+}

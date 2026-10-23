@@ -1,0 +1,27 @@
+[project]
+name = "knu-lms-ics"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic",
+    "httpx",
+    "icalendar",
+    "pydantic",
+    "pyyaml",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[project.scripts]
+knu-lms-ics = "knu_lms_ics.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/knu_lms_ics"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,26 @@
+# config/overrides.yaml 로 복사해서 쓴다. 매 실행마다 다시 읽는다.
+# 없는 UID를 가리키면 경고만 남기고 무시한다. 시각에 시간대가 없으면 Asia/Seoul로 본다.
+# UID의 @ 뒤는 UID_DOMAIN 값이다. 아래 예시는 UID_DOMAIN=example.com 기준.
+
+# 직접 추가. UID는 manual-<id>@<UID_DOMAIN>
+add: []
+  # - id: os-midterm
+  #   title: "[시험] 운영체제 - 중간고사"
+  #   start: 2026-10-28T15:00
+  #   end: 2026-10-28T16:15
+  #   location: 공학관 101호
+  # - id: study
+  #   title: 스터디 모임
+  #   date: 2026-11-02          # 종일
+
+# UID로 숨기기
+hide: []
+  # - canvas-assignment-12345@example.com
+
+# UID의 제목·시각·장소 덮어쓰기. start만 바꾸면 길이는 유지한다.
+patch: {}
+  # exam-5001-1@example.com:
+  #   title: "[시험] 운영체제 - 중간고사 (확정)"
+  #   start: 2026-10-28T15:00
+  #   end: 2026-10-28T16:15
+  #   location: 공학관 101호
